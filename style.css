@@ -1,0 +1,10 @@
+.board {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.square img {
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+}
