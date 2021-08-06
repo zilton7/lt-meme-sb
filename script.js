@@ -9,17 +9,29 @@ const audioFiles = [
 
 let audio = false;
 
-document.querySelectorAll(".square").forEach((square) => {
+const squares = document.querySelectorAll(".square");
+squares.forEach((square) => {
   square.addEventListener("click", () => {
     if (audio) {
+      // Get currently playing square
+      const currentAudioName = audio.src
+        .replace(/^.*[\\\/]/, "")
+        .replace(".mp3", "");
+      const index = audioFiles.indexOf(currentAudioName);
+      const currentSquare = squares[index];
+      if (currentSquare.classList.contains("playing")) {
+        currentSquare.classList.toggle("playing");
+      }
       audio.pause();
     }
-    const selectedSound =
-      "./assets/audio/" + audioFiles[square.id - 1] + ".mp3";
-    audio = new Audio(selectedSound);
+    audio = new Audio("./assets/audio/" + audioFiles[square.id - 1] + ".mp3");
     audio.play();
+    square.classList.toggle("playing");
     audio.addEventListener("ended", () => {
       audio = false;
+      if (square.classList.contains("playing")) {
+        square.classList.toggle("playing");
+      }
     });
   });
 });
