@@ -42,7 +42,6 @@ body {
 
 .square img:hover {
   scale: 1.1;
-  filter: sepia(100%);
 }
 
 .square.playing {
