@@ -1,4 +1,7 @@
 const audioFiles = [
+"petras1",
+    "petras2",
+    'petras3',
   "ir-tu-duchas",
   "matrica",
   "pabuciuok-in-bybi",
